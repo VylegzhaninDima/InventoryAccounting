@@ -1,0 +1,45 @@
+﻿<Window x:Class="InventoryAccounting.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:InventoryAccounting"
+        mc:Ignorable="d"
+        Title="Учет товарно-материальных ценностей" Height="450" Width="800" Loaded="Window_Loaded">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="65*"/>
+            <ColumnDefinition Width="322*"/>
+            <ColumnDefinition Width="9*"/>
+        </Grid.ColumnDefinitions>
+        <Button Grid.Column="0" Height="20" VerticalAlignment="Top" Margin="0,27,0,0" Content="Добавление" Click="ButtonClicked"/>
+        <Button Grid.Column="0" Height="20" VerticalAlignment="Top" Margin="0,51,0,0" Content="Изменение"/>
+        <Button Grid.Column="0" Height="20" VerticalAlignment="Top" Margin="0,76,0,0" Content="Удаление"/>
+        <Button x:Name="UpdateDB" Grid.Column="0" Height="20" VerticalAlignment="Top" Margin="0,101,0,0" Content="Сохранить" Click="Button_Click"/>
+        <DataGrid Grid.Column="1" AutoGenerateColumns="False"  Name="InventoryGrid" ItemsSource="{Binding}" Margin="10" Grid.ColumnSpan="2">
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding Path = Код}" Width="100" Header="Код" />
+                <DataGridTextColumn Binding="{Binding Path = Счет}" Width="100" Header="Счет"/>
+                <DataGridTextColumn Binding="{Binding Path = КФО}" Width="100" Header="КФО"/>
+                <DataGridTextColumn Binding="{Binding Path = КПС}" Width="100" Header="КПС"/>
+                <DataGridTextColumn Binding="{Binding Path = МОЛ}" Width="100" Header="МОЛ"/>
+                <DataGridTextColumn Binding="{Binding Path = ОС}" Width="100" Header="Основные средства" />
+                <DataGridTextColumn Binding="{Binding Path = [Инвентарный номер]}" Width="100" Header="Инвентарный номер" />
+                <DataGridTextColumn Binding="{Binding Path = ОКОФ}" Width="100" Header="ОКОФ" />
+                <DataGridTextColumn Binding="{Binding Path = [Амортизационная группа]}" Width="100" Header="Амортизационная группа" />
+                <DataGridTextColumn Binding="{Binding Path = [Способ начисления амортизации]}" Width="100" Header="Способ начисления амортизации" />
+                <DataGridTextColumn Binding="{Binding Path = [Дата принятия к учету]}" Width="100" Header="Дата принятия к учету" />
+                <DataGridTextColumn Binding="{Binding Path = Состояние}" Width="100" Header="Состояние" />
+                <DataGridTextColumn Binding="{Binding Path = [Месячная норма %]}" Width="100" Header="Месячная норма %" />
+                <DataGridTextColumn Binding="{Binding Path = [Срок полезного использования]}" Width="100" Header="Срок полезного использования" />
+                <DataGridTextColumn Binding="{Binding Path = [Процент износа]}" Width="100" Header="Процент износа" />
+                <DataGridTextColumn Binding="{Binding Path = Количество}" Width="100" Header="Количество" />
+                <DataGridTextColumn Binding="{Binding Path = [Балансовая стоимость]}" Width="100" Header="Балансовая стоимость" />
+                <DataGridTextColumn Binding="{Binding Path=[Сумма амортизации]}" Width="100" Header="Сумма амортизации" />
+                <DataGridTextColumn Binding="{Binding Path=[Остаточная стоимость]}" Width="100" Header="Остаточная стоимость"/>
+
+            </DataGrid.Columns>
+
+        </DataGrid>
+    </Grid>
+</Window>
